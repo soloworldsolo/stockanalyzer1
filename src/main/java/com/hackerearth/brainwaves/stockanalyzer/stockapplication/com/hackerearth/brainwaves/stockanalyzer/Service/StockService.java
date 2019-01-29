@@ -2,6 +2,7 @@ package com.hackerearth.brainwaves.stockanalyzer.stockapplication.com.hackereart
 
 import com.hackerearth.brainwaves.stockanalyzer.stockapplication.com.hackerearth.brainwaves.stockanalyzer.dao.StockDao;
 import com.hackerearth.brainwaves.stockanalyzer.stockapplication.com.hackerearth.brainwaves.stockanalyzer.model.Stock;
+import com.hackerearth.brainwaves.stockanalyzer.stockapplication.com.hackerearth.brainwaves.stockanalyzer.model.StockModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,15 +13,15 @@ public class StockService {
     @Autowired
     private StockDao<Stock> stockDao;
 
-    public List<Stock> getAllStocks(){
+    public StockModel getAllStocks(){
          return  stockDao.getallStocks();
     }
 
-    public List<Stock> getAllStocks(int offset){
+    public StockModel getAllStocks(int offset){
         return  stockDao.getStocksbyOffset(offset);
     }
 
-    public List<Stock> getstocksbyfilter(String fieldName,String fieldValue,int offset) {
+    public StockModel getstocksbyfilter(String fieldName,String fieldValue,int offset) {
         return  stockDao.findStockByqueryFilter(fieldName,fieldValue,offset);
     }
 }

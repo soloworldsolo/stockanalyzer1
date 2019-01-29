@@ -1,0 +1,41 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------< com.hackerearth.brainwaves.stockanalyzer:stockanalyzer >-------
+[INFO] Building stockanalyzer 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ stockanalyzer ---
+[INFO] Deleting /Users/shaminsolomon/Desktop/sololookup/stockanalyzer/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ stockanalyzer ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ stockanalyzer ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 8 source files to /Users/shaminsolomon/Desktop/sololookup/stockanalyzer/target/classes
+[INFO] /Users/shaminsolomon/Desktop/sololookup/stockanalyzer/src/main/java/com/hackerearth/brainwaves/stockanalyzer/stockapplication/com/hackerearth/brainwaves/stockanalyzer/dao/StockDAOimpl/StockDAOimpl.java: /Users/shaminsolomon/Desktop/sololookup/stockanalyzer/src/main/java/com/hackerearth/brainwaves/stockanalyzer/stockapplication/com/hackerearth/brainwaves/stockanalyzer/dao/StockDAOimpl/StockDAOimpl.java uses unchecked or unsafe operations.
+[INFO] /Users/shaminsolomon/Desktop/sololookup/stockanalyzer/src/main/java/com/hackerearth/brainwaves/stockanalyzer/stockapplication/com/hackerearth/brainwaves/stockanalyzer/dao/StockDAOimpl/StockDAOimpl.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ stockanalyzer ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /Users/shaminsolomon/Desktop/sololookup/stockanalyzer/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ stockanalyzer ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ stockanalyzer ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ stockanalyzer ---
+[INFO] Building jar: /Users/shaminsolomon/Desktop/sololookup/stockanalyzer/target/stockanalyzer-1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.1.2.RELEASE:repackage (default) @ stockanalyzer ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.061 s
+[INFO] Finished at: 2019-01-21T09:45:48+05:30
+[INFO] ------------------------------------------------------------------------
