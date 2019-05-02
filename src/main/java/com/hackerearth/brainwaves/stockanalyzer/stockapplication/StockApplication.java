@@ -48,11 +48,6 @@ public class StockApplication {
         properties.put("current_session_context_class", //
                 env.getProperty("spring.jpa.properties.hibernate.current_session_context_class"));
 
-
-        // Fix Postgres JPA Error:
-        // Method org.postgresql.jdbc.PgConnection.createClob() is not yet implemented.
-        // properties.put("hibernate.temp.use_jdbc_metadata_defaults",false);
-
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 
         // Package contain entity classes

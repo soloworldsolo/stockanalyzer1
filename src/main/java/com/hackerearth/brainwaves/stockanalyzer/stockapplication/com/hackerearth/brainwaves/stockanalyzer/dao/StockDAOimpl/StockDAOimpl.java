@@ -5,25 +5,25 @@ import com.hackerearth.brainwaves.stockanalyzer.stockapplication.com.hackerearth
 import com.hackerearth.brainwaves.stockanalyzer.stockapplication.com.hackerearth.brainwaves.stockanalyzer.dao.queryConstants;
 import com.hackerearth.brainwaves.stockanalyzer.stockapplication.com.hackerearth.brainwaves.stockanalyzer.model.Stock;
 import com.hackerearth.brainwaves.stockanalyzer.stockapplication.com.hackerearth.brainwaves.stockanalyzer.model.StockModel;
-import org.hibernate.*;
-import org.hibernate.criterion.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
-import org.hibernate.sql.JoinType;
-import org.hibernate.transform.ResultTransformer;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.provider.HibernateUtils;
+import org.springframework.http.ResponseEntity;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.util.List;
-import java.util.zip.CRC32;
+
 
 
 @Repository
 public class StockDAOimpl implements StockDao<Stock> {
     @Autowired
     private SessionFactory sessionfactory;
+
     /*
       returns the first ten stocks by default
      */
@@ -49,10 +49,7 @@ public class StockDAOimpl implements StockDao<Stock> {
         queryobj.setMaxResults(20);
         StockModel model = new StockModel();
         model.setStockList(queryobj.list());
-        CriteriaBuilder cb = getSession().getCriteriaBuilder();
-        CriteriaQuery<Stock> cr = cb.createQuery(Stock.class);
-        Root<Stock> root = cr.from(Stock.class);
-        cr.select(root);
+        CriteriaQuery<Stock> cr= DaoHelper.getcriteriaQuery(getSession(), Stock.class);
         Query<Stock> hibquery = getSession().createQuery(cr);
         long count = hibquery.getResultList().size();
         model.setTotalRecords(count);
@@ -61,14 +58,13 @@ public class StockDAOimpl implements StockDao<Stock> {
 
     public StockModel findStockByqueryFilter(String fieldName, String fieldValue,int offset) {
 
-
        StockModel model = new StockModel();
-
         CriteriaBuilder cb = getSession().getCriteriaBuilder();
         CriteriaQuery<Stock> cr = cb.createQuery(Stock.class);
         Root<Stock> root = cr.from(Stock.class);
-        cr= cr.select(root).where(cb.equal(root.get(fieldName), fieldValue));
+        cr= cr.multiselect(root.get(""),root.get("")).where(cb.equal(root.get(fieldName), fieldValue));
         Query<Stock> hiberqreylist = getSession().createQuery(cr);
+
         hiberqreylist.setFirstResult(offset);
         hiberqreylist.setMaxResults(20);
 
